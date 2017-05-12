@@ -21,8 +21,8 @@ public class Almacen_Plataforma extends Almacen{
 
     @Override
     public boolean Cifrado_Riel() {
-        String Contra = ES.Contrasena;
-        char[][] Cifrado = new char[3][Contra.length()];
+        String Contra = ES.getContrasena();
+        char [][] Cifrado = new char[3][Contra.length()];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < Contra.length(); j++) {
                 Cifrado[i][j] = '-';
@@ -31,27 +31,26 @@ public class Almacen_Plataforma extends Almacen{
         for (int i = 0; i < 3; i++) {
             int h = 0;
             for (int j = 0; j < Contra.length(); j++) {
-                int k = 0;
-                if (i == j || 3 + i == j) {
-                    Cifrado[i][j] = Contra.charAt(k);
-                    if (h == 2) {
+                if(i == j || 3 + i == j){
+                    Cifrado[i][j] = Contra.charAt(j);
+                    if(h == 2){
                         h = 0;
                     }
                 }
-                k++;
             }
         }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < Contra.length(); j++) {
-                System.out.println("[" + Cifrado[i][j] + "] ");
+                System.out.print("[" + Cifrado[i][j] + "] ");
             }
+            System.out.println("");
         }
         System.out.println("Ingrese la contrasena");
         String Comparar = sc.next();
-        if (Contra.equals(Comparar)) {
+        if(Contra.equals(Comparar)){
             return true;
-        } else {
-            return false;
+        }else{
+        return false;
         }
     }
 

@@ -1,16 +1,25 @@
 package lab4_erickricardo;
 
 public class Empleado_Seguridad extends Empleado{
-    public String Contrasena, DiaTrabajo;
+    public String Contrasena, DiaTrabajo, Clave;
 
     public Empleado_Seguridad() {
         super();
     }
 
-    public Empleado_Seguridad(String Contrasena, String DiaTrabajo, double Sueldo, String Nombre, String Residencia, String ID, int Edad, double Altura, double Peso) {
+    public Empleado_Seguridad(String Contrasena, String Clave, String DiaTrabajo, double Sueldo, String Nombre, String Residencia, String ID, int Edad, double Altura, double Peso) {
         super(Sueldo, Nombre, Residencia, ID, Edad, Altura, Peso);
         this.Contrasena = Contrasena;
         this.DiaTrabajo = DiaTrabajo;
+        this.Clave = Clave;
+    }
+
+    public String getClave() {
+        return Clave;
+    }
+
+    public void setClave(String Clave) {
+        this.Clave = Clave;
     }
 
     public String getContrasena() {
@@ -31,7 +40,7 @@ public class Empleado_Seguridad extends Empleado{
 
     @Override
     public String toString() {
-        return super.toString() + "Empleado_Seguridad{" + "Contrasena=" + Contrasena + ", DiaTrabajo=" + DiaTrabajo + '}';
+        return super.toString() + "Empleado_Seguridad{" + "Contrasena=" + Contrasena + ", DiaTrabajo=" + DiaTrabajo + ", Clave=" + Clave + '}';
     }
     
     
