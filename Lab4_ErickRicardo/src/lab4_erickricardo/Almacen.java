@@ -2,7 +2,7 @@ package lab4_erickricardo;
 
 import java.util.ArrayList;
 
-public class Almacen {
+public abstract class Almacen {
     public ArrayList <Empleado> E = new ArrayList();
     public ArrayList <Producto> P = new ArrayList();
     public double Tamano, Altura;
@@ -61,5 +61,11 @@ public class Almacen {
         return "Almacen{" + "E=" + E + ", P=" + P + ", Tamano=" + Tamano + ", Altura=" + Altura + ", C=" + C + '}';
     }
     
-    
+    public abstract boolean Cifrado_Transposicion();
+    public abstract boolean Cifrado_Riel();
+    public abstract boolean Cifrado_Binario();
+    public abstract boolean Cifrado_Vigenere();
+    public abstract boolean Cifrado_Posicion();
+    public abstract boolean Cifrado_Matrices();
+    public abstract boolean Cifrado_Alfabeto();
 }

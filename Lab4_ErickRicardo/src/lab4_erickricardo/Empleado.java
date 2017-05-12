@@ -19,5 +19,10 @@ public class Empleado extends Persona{
     public void setSueldo(double Sueldo) {
         this.Sueldo = Sueldo;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Empleado{" + "Sueldo=" + Sueldo + '}';
+    }
     
 }
