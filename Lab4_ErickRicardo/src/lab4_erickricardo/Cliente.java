@@ -1,16 +1,16 @@
 package lab4_erickricardo;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Cliente extends Persona{
     public double DineroBolsillo;
-    public Date PrimeraCompra;
+    public Calendar PrimeraCompra;
 
     public Cliente() {
         super();
     }
 
-    public Cliente(double DineroBolsillo, Date PrimeraCompra, String Nombre, String Residencia, String ID, int Edad, double Altura, double Peso) {
+    public Cliente(double DineroBolsillo, Calendar PrimeraCompra, String Nombre, String Residencia, String ID, int Edad, double Altura, double Peso) {
         super(Nombre, Residencia, ID, Edad, Altura, Peso);
         this.DineroBolsillo = DineroBolsillo;
         this.PrimeraCompra = PrimeraCompra;
@@ -24,11 +24,11 @@ public class Cliente extends Persona{
         this.DineroBolsillo = DineroBolsillo;
     }
 
-    public Date getPrimeraCompra() {
+    public Calendar getPrimeraCompra() {
         return PrimeraCompra;
     }
 
-    public void setPrimeraCompra(Date PrimeraCompra) {
+    public void setPrimeraCompra(Calendar PrimeraCompra) {
         this.PrimeraCompra = PrimeraCompra;
     }
 
