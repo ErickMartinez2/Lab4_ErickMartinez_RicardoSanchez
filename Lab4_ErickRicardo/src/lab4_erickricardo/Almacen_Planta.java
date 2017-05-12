@@ -41,7 +41,11 @@ public class Almacen_Planta extends Almacen{
                 if(i == 0){
                     Cifrado[i][j] = Contra.charAt(j);
                 }else if(i == 1){
-                    Cifrado [i][j] = "";
+                    String Alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    int Dis = Alfabeto.indexOf(Contra.charAt(j));
+                    Cifrado [i][j] = Dis;
+                }else if(i == 2){
+                    
                 }
             }
         }
@@ -60,20 +64,19 @@ public class Almacen_Planta extends Almacen{
         for (int i = 0; i < 3; i++) {
             int h = 0;
             for (int j = 0; j < Contra.length(); j++) {
-                int k = 0;
                 if(i == j || 3 + i == j){
-                    Cifrado[i][j] = Contra.charAt(k);
+                    Cifrado[i][j] = Contra.charAt(j);
                     if(h == 2){
                         h = 0;
                     }
                 }
-                k++;
             }
         }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < Contra.length(); j++) {
-                System.out.println("[" + Cifrado[i][j] + "] ");
+                System.out.print("[" + Cifrado[i][j] + "] ");
             }
+            System.out.println("");
         }
         System.out.println("Ingrese la contrasena");
         String Comparar = sc.next();
