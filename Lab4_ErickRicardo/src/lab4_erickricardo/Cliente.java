@@ -1,10 +1,12 @@
 package lab4_erickricardo;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Cliente extends Persona{
     public double DineroBolsillo;
     public Calendar PrimeraCompra;
+    public ArrayList<Producto> p = new ArrayList();
 
     public Cliente() {
         super();
@@ -14,6 +16,14 @@ public class Cliente extends Persona{
         super(Nombre, Residencia, ID, Edad, Altura, Peso);
         this.DineroBolsillo = DineroBolsillo;
         this.PrimeraCompra = PrimeraCompra;
+    }
+
+    public ArrayList<Producto> getP() {
+        return p;
+    }
+
+    public void setP(ArrayList<Producto> p) {
+        this.p = p;
     }
 
     public double getDineroBolsillo() {

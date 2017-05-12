@@ -18,9 +18,8 @@ import java.util.Scanner;
 public class Lab4_ErickRicardo {
 
     static Scanner sc = new Scanner(System.in);
-    static ArrayList<Empleado> empleado = new ArrayList();
+    static ArrayList<Persona> persona = new ArrayList();
     static ArrayList<Producto> producto = new ArrayList();
-    static ArrayList<Cliente> cliente = new ArrayList();
     static ArrayList<Almacen> almacen = new ArrayList();
 
     /**
@@ -90,7 +89,7 @@ public class Lab4_ErickRicardo {
                                             System.out.print("Ingrese la fecha : ");
                                             Date fecha = new Date();
                                             Empleado_Carga pe = new Empleado_Carga(fecha, entrada, salida, sueldo, nombre, residencia, id, edad, altura, peso);
-                                            empleado.add(pe);
+                                            persona.add(pe);
                                             break;
                                         case 2:
                                             System.out.print("Ingrese la contraseña: ");
@@ -98,7 +97,7 @@ public class Lab4_ErickRicardo {
                                             System.out.print("Ingrese el dia que trabaja: ");
                                             String dia = sc.next();
                                             Empleado_Seguridad ps = new Empleado_Seguridad(contrasena, dia, sueldo, nombre, residencia, id, edad, altura, peso);
-                                            empleado.add(ps);
+                                            persona.add(ps);
                                             break;
                                     }
                                     break;
@@ -113,9 +112,155 @@ public class Lab4_ErickRicardo {
                                     System.out.print("Ingrese el dia de su compra: ");
                                     int dia = sc.nextInt();
                                     Calendar c = new GregorianCalendar(ano, mes, dia);
-                                    Persona pc = new Cliente(dinero, c, nombre, residencia, id, edad, altura, peso);
+                                    System.out.println("-> Productos");
+                                    for (int i = 0; i < producto.size(); i++) {
+                                        System.out.println(i + ". " + producto.get(i));
+                                    }
+                                    System.out.print("Ingrese su opcion: ");
+                                    int opcion_3 = sc.nextInt();
+                                    Cliente pc = new Cliente(dinero, c, nombre, residencia, id, edad, altura, peso);
+                                    pc.getP().add(producto.get(opcion_3));
+                                    persona.add(pc);
                                     break;
                             }
+                            System.out.println("Persona Creada!");
+                            break;
+                        case 2:
+                            System.out.println("-> Modificar");
+                            System.out.println(" Personas:");
+                            for (int i = 0; i < persona.size(); i++) {
+                                System.out.println(i + ". " + persona.get(i));
+                            }
+                            System.out.print("Ingrese el numero de la persona: ");
+                            int num_persona = sc.nextInt();
+                            System.out.println();
+                            System.out.println("-> Modificar");
+                            System.out.println("1. Nombre");
+                            System.out.println("2. ID");
+                            System.out.println("3. Edad");
+                            System.out.println("4. Altura");
+                            System.out.println("5. Peso");
+                            System.out.println("6. Residencia");
+                            System.out.println("7. Informacion Detallada");
+                            System.out.print("Ingrese su opcion: ");
+                            int opcion_m = sc.nextInt();
+                            System.out.println();
+                            switch (opcion_m) {
+                                case 1:
+                                    System.out.print("Ingrese el nombre: ");
+                                    String nombre2 = sc.next();
+                                    persona.get(num_persona).setNombre(nombre2);
+                                    break;
+                                case 2:
+                                    System.out.print("Ingrese el ID: ");
+                                    String id2 = sc.next();
+                                    persona.get(num_persona).setID(id2);
+                                    break;
+                                case 3:
+                                    System.out.print("Ingrese la edad: ");
+                                    int edad2 = sc.nextInt();
+                                    persona.get(num_persona).setEdad(edad2);
+                                    break;
+                                case 4:
+                                    System.out.print("Ingrese la altura: ");
+                                    double altura2 = sc.nextDouble();
+                                    persona.get(num_persona).setAltura(altura2);
+                                    break;
+                                case 5:
+                                    System.out.print("Ingrese el peso: ");
+                                    double peso2 = sc.nextDouble();
+                                    persona.get(num_persona).setPeso(peso2);
+                                    break;
+                                case 6:
+                                    System.out.print("Ingrese la residencia: ");
+                                    String residencia2 = sc.next();
+                                    persona.get(num_persona).setResidencia(residencia2);
+                                    break;
+                                case 7:
+                                    System.out.println("-> Informacion Detallada");
+                                    if (persona.get(num_persona) instanceof Empleado) {
+                                        if (persona.get(num_persona) instanceof Empleado_Carga) {
+                                            System.out.println("1. Sueldo");
+                                            System.out.println("2. Hora de Entrada");
+                                            System.out.println("3. Hora de Salida");
+                                            System.out.print("Ingrese su opcion: ");
+                                            int opcion_1 = sc.nextInt();
+                                            switch (opcion_1) {
+                                                case 1:
+                                                    System.out.print("Ingrese el sueldo: ");
+                                                    double sueldo = sc.nextDouble();
+                                                    ((Empleado_Carga) persona.get(num_persona)).setSueldo(sueldo);
+                                                    break;
+                                                case 2:
+                                                    System.out.print("Ingrese la hora de entrada: ");
+                                                    String entrada2 = sc.next();
+                                                    ((Empleado_Carga) persona.get(num_persona)).setHoraEntrada(entrada2);
+                                                    break;
+                                                case 3:
+                                                    System.out.print("Ingrese la hora de salida: ");
+                                                    String salida2 = sc.next();
+                                                    ((Empleado_Carga) persona.get(num_persona)).setHoraSalida(salida2);
+                                                    break;
+                                            }
+                                        } else {
+                                            if (persona.get(num_persona) instanceof Empleado_Seguridad) {
+                                                System.out.println("1. Sueldo");
+                                                System.out.println("2. Dia que Trabaja");
+                                                System.out.print("Ingrese su opcion: ");
+                                                int opcion_2 = sc.nextInt();
+                                                switch (opcion_2) {
+                                                    case 1:
+                                                        System.out.print("Ingrese el sueldo: ");
+                                                        double sueldo2 = sc.nextDouble();
+                                                        ((Empleado_Seguridad) persona.get(num_persona)).setSueldo(sueldo2);
+                                                        break;
+                                                    case 2:
+                                                        System.out.print("Ingrese el dia en que trabaja: ");
+                                                        String dia2 = sc.next();
+                                                        ((Empleado_Seguridad) persona.get(num_persona)).setDiaTrabajo(dia2);
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        if (persona.get(num_persona) instanceof Cliente) {
+                                            System.out.println("1. Dinero del Bolsillo");
+                                            System.out.println("2. Fecha");
+                                            System.out.print("Ingrese su opcion: ");
+                                            int opcion_4 = sc.nextInt();
+                                            System.out.println();
+                                            switch (opcion_4) {
+                                                case 1:
+                                                    System.out.print("Ingrese el dinero del bolsillo: ");
+                                                    double dinero = sc.nextDouble();
+                                                    ((Cliente) persona.get(num_persona)).setDineroBolsillo(dinero);
+                                                    break;
+                                                case 2:
+                                                    System.out.print("Ingrese el año de su compra: ");
+                                                    int ano = sc.nextInt();
+                                                    System.out.print("Ingrese el mes de su compra: ");
+                                                    int mes = sc.nextInt();
+                                                    System.out.print("Ingrese el dia de su compra: ");
+                                                    int dia = sc.nextInt();
+                                                    Calendar c = new GregorianCalendar(ano, mes, dia);
+                                                    ((Cliente) persona.get(num_persona)).setPrimeraCompra(c);
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    break;
+                            }
+                            System.out.println("Persona Modificada!");
+                            break;
+                        case 3:
+                            System.out.println("-> Eliminar");
+                            for (int i = 0; i < persona.size(); i++) {
+                                System.out.println(i + ". " + persona.get(i));
+                            }
+                            System.out.print("Ingrese el numero de la persona: ");
+                            int num_per = sc.nextInt();
+                            persona.remove(num_per);
+                            System.out.println("Persona Eliminada!");
                             break;
                     }
                     break;
@@ -147,8 +292,10 @@ public class Lab4_ErickRicardo {
             case 1:
                 System.out.println("-> Crear");
                 System.out.println(" Empleados:");
-                for (int i = 0; i < empleado.size(); i++) {
-                    System.out.println(i + ". " + empleado.get(i));
+                for (int i = 0; i < persona.size(); i++) {
+                    if (persona.get(i) instanceof Empleado) {
+                        System.out.println(i + ". " + persona.get(i));
+                    }
                 }
                 System.out.print("Ingrese el numero del empleado: ");
                 int num_empleado = sc.nextInt();
@@ -163,8 +310,10 @@ public class Lab4_ErickRicardo {
                 System.out.print("Ingrese la altura: ");
                 double altura = sc.nextDouble();
                 System.out.println(" Clientes:");
-                for (int i = 0; i < cliente.size(); i++) {
-                    System.out.println(i + ". " + cliente.get(i));
+                for (int i = 0; i < persona.size(); i++) {
+                    if (persona.get(i) instanceof Cliente) {
+                        System.out.println(i + ". " + persona.get(i));
+                    }
                 }
                 System.out.print("Ingrese el numero del cliente: ");
                 int num_cliente = sc.nextInt();
