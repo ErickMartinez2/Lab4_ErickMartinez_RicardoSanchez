@@ -1,15 +1,15 @@
 package lab4_erickricardo;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Producto {
-    public Date FechaEmision;
+    public Calendar FechaEmision;
     public double precio, Tamano;
     public String Descripcion, NombreProducto;
     public int NumeroProductos;
-    public String VidaUtil;
+    public int VidaUtil;
     
-    public Producto(Date FechaEmision, double precio, double Tamano, String Descripcion, String NombreProducto, int NumeroProductos, String VidaUtil) {
+    public Producto(Calendar FechaEmision, double precio, double Tamano, String Descripcion, String NombreProducto, int NumeroProductos, int VidaUtil) {
         this.FechaEmision = FechaEmision;
         this.precio = precio;
         this.Tamano = Tamano;
@@ -19,11 +19,11 @@ public class Producto {
         this.VidaUtil = VidaUtil;
     }
 
-    public Date getFechaEmision() {
+    public Calendar getFechaEmision() {
         return FechaEmision;
     }
 
-    public void setFechaEmision(Date FechaEmision) {
+    public void setFechaEmision(Calendar FechaEmision) {
         this.FechaEmision = FechaEmision;
     }
 
@@ -67,11 +67,11 @@ public class Producto {
         this.NumeroProductos = NumeroProductos;
     }
 
-    public String getVidaUtil() {
+    public int getVidaUtil() {
         return VidaUtil;
     }
 
-    public void setVidaUtil(String VidaUtil) {
+    public void setVidaUtil(int VidaUtil) {
         this.VidaUtil = VidaUtil;
     }
     
