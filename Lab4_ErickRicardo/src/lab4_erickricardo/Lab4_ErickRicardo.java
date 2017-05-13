@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -18,6 +19,7 @@ import java.util.Scanner;
 public class Lab4_ErickRicardo {
 
     static Scanner sc = new Scanner(System.in);
+    static Random rd = new Random();
     static ArrayList<Persona> persona = new ArrayList();
     static ArrayList<Producto> producto = new ArrayList();
     static ArrayList<Almacen> almacen = new ArrayList();
@@ -38,6 +40,7 @@ public class Lab4_ErickRicardo {
             System.out.print("Ingrese su opcion: ");
             opcion = sc.nextInt();
             System.out.println();
+            int numr = rd.nextInt(2);
             switch (opcion) {
                 case 1:
                     Almacen();
@@ -134,8 +137,8 @@ public class Lab4_ErickRicardo {
                         System.out.print("Ingrese el numero de plantas: ");
                         int num_plantas = sc.nextInt();
                         Almacen ap = new Almacen_Planta(num_plantas, tamano, altura);
-                        ap.getC().add((Cliente)persona.get(num_cliente));
-                        ap.getE().add((Empleado)persona.get(num_empleado));
+                        ap.getC().add((Cliente) persona.get(num_cliente));
+                        ap.getE().add((Empleado) persona.get(num_empleado));
                         ap.getP().add(producto.get(num_producto));
                         almacen.add(ap);
                         break;
@@ -144,8 +147,8 @@ public class Lab4_ErickRicardo {
                         System.out.print("Ingrese el nombre del departamento: ");
                         String nombre = sc.next();
                         Almacen ar = new Almacen_Regionales(nombre, tamano, altura);
-                        ar.getC().add((Cliente)persona.get(num_cliente));
-                        ar.getE().add((Empleado)persona.get(num_empleado));
+                        ar.getC().add((Cliente) persona.get(num_cliente));
+                        ar.getE().add((Empleado) persona.get(num_empleado));
                         ar.getP().add(producto.get(num_producto));
                         almacen.add(ar);
                         break;
@@ -158,8 +161,8 @@ public class Lab4_ErickRicardo {
                     case 4:
                         System.out.println("-> Almacen Temporal");
                         Almacen at = new Almacen_Temporales(tamano, altura);
-                        at.getC().add((Cliente)persona.get(num_cliente));
-                        at.getE().add((Empleado)persona.get(num_empleado));
+                        at.getC().add((Cliente) persona.get(num_cliente));
+                        at.getE().add((Empleado) persona.get(num_empleado));
                         at.getP().add(producto.get(num_producto));
                         almacen.add(at);
                         break;
